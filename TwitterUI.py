@@ -17,8 +17,9 @@ input("Press 'Enter' to continue... ")
 
 ascii_banner = pyfiglet.figlet_format("Login")
 print(ascii_banner)
-ConsumerKeyInput = input("Please enter your consumer key: ")
-ConsumerSecretKeyInput = input("Please enter your consumer secret key: ")
+ConsumerKeyInput = input("Please enter your API key: ")
+ConsumerSecretKeyInput = input("Please enter your API secret key: ")
+time.sleep(2)
 for i in range(50):
     print(" ")
     
@@ -42,22 +43,21 @@ for i in range(50):
     print(" ")
 
 api = tweepy.API(auth, wait_on_rate_limit = True)
+me = api.me()
 #Auth end
 
 #Running actions
-me = api.me()
-
 
 while Loopstart == 1000:
     # Options start
-    ascii_banner = pyfiglet.figlet_format("Main Menu")
+    ascii_banner = pyfiglet.figlet_format("Piano")
     print(ascii_banner)
     print("T - Tweet Menu ")
     print(" ")
     print("O - Others menu")
     print(" ")
+    print("================================================")
     print("Developer: DemonMan123/Demin")
-    print(" ")
     print("Current logged in as:", me.screen_name)
     # Options end
     
@@ -80,6 +80,8 @@ while Loopstart == 1000:
         print(" ")
         print("5 - Retweet a tweet")
         print(" ")
+        print("6 - Grab the username and ID of a tweets retweeters")
+        print(" ")
         print("99 - back")
         print(" ")
         TweetSelection = input("Please enter an option: ")
@@ -90,19 +92,19 @@ while Loopstart == 1000:
         
         
         if TweetSelection == "1": # Checking the options
-            UserTweet = input("Enter a tweet to add: ") # Waiting for user to input a tweet
+            UserTweet = input("Enter a tweet to create: ") # Waiting for user to input a tweet
 
             new_status = api.update_status(UserTweet) # Tweeting what the user inputted 
-            print("Tweet added:", UserTweet) # Printing out the tweet
+            print("Tweet created:", UserTweet) # Printing out the tweet
             time.sleep(3) # Waiting 3 seconds
             for i in range(10): #Clearing the console
                 print(" ")
         
         elif TweetSelection == "2":
             TweetDestroy = input("Please enter the ID of the tweet you would like to remove: ")
+            api.destroy_status(TweetDestroy)
             time.sleep(1)
             print(" ")
-            api.destroy_status(TweetDestroy)
             print("Tweet removed")
             time.sleep(3)
             for i in range(5):
@@ -134,6 +136,15 @@ while Loopstart == 1000:
             time.sleep(3)
             for i in range(10): # Clearing the console
                 print(" ")
+                
+        elif TweetSelection == "6":
+            TweetID = input("Enter the ID of the tweet: ")
+            Count = input("How many users would you like to grab: ")
+            retweetlist = api.retweets(TweetID, Count)
+            for retweet in retweetlist:
+                print(retweet.user.screen_name + " ID: ", + retweet.user.id)
+            a = input("Press enter to continue... ")
+            
         else:
             print("Returning to main menu in 2s!")
             time.sleep(2)
@@ -226,15 +237,14 @@ while Loopstart == 1000:
             for i in range(5):
                 print(" ")
                 
+        elif OtherSelection == "5":
+            MessageCount = int(input("How many messages would you like to retrieve? "))
+            last_dms = me.list_direct_messages(1)
+            for messages in last_dms:
+                print(messages.text)
+                
         else:
             print("Returning to main menu in 2s!")
             time.sleep(2)
             for i in range(10):
                 print(" ")
-            return
-                
-    else:
-        print("Invalid option!")
-        time.sleep(2)
-        for i in range(10):
-            print(" ")
