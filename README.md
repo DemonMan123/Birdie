@@ -1,5 +1,5 @@
-# Twitter-API-UI
-Just a fun little GUI to interact with sections of the twitter API.
+# Birdie
+Just a fun little tool to interact with sections of the twitter API.
 
 You need to install Tweepy with pip install:
  - Tweepy (Pip install tweepy)
