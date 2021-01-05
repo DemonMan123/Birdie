@@ -56,6 +56,8 @@ while Loopstart == 1000:
     print(" ")
     print("O - Others menu")
     print(" ")
+    print("Developer: DemonMan123/Demin")
+    print(" ")
     # Options end
     
     
