@@ -1,4 +1,4 @@
-# TwitterAPIGui
+# Twitter-API-UI
 Just a fun little GUI to interact with sections of the twitter API.
 
 You need to install Tweepy with pip install:
