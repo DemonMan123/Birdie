@@ -151,14 +151,6 @@ while Loopstart == 1000:
             for i in range(10):
                 print(" ")
                 
-                
-                
-                
-                
-                
-                
-                
-                
     if menu_Selection == "O":
         ascii_banner = pyfiglet.figlet_format("Others Menu")
         print(ascii_banner)
