@@ -50,7 +50,7 @@ me = api.me()
 
 while Loopstart == 1000:
     # Options start
-    ascii_banner = pyfiglet.figlet_format("Piano")
+    ascii_banner = pyfiglet.figlet_format("Birdie")
     print(ascii_banner)
     print("T - Tweet Menu ")
     print(" ")
