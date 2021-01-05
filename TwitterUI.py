@@ -83,9 +83,6 @@ while Loopstart == 1000:
         for i in range(4): #Clearing
             print(" ")
 
-        
-        
-        
         if TweetSelection == "1": # Checking the options
             UserTweet = input("Enter a tweet to add: ") # Waiting for user to input a tweet
 
@@ -136,14 +133,6 @@ while Loopstart == 1000:
             time.sleep(2)
             for i in range(10):
                 print(" ")
-                
-                
-                
-                
-                
-                
-                
-                
                 
     if menu_Selection == "O":
         ascii_banner = pyfiglet.figlet_format("Others Menu")
