@@ -67,7 +67,7 @@ while Loopstart == 1000:
     for i in range(10): #Clear terminal
         print(" ")
         
-    if menu_Selection == "T":
+    if menu_Selection == "T" or menu_Selection == "t":
         ascii_banner = pyfiglet.figlet_format("Tweet Menu")
         print(ascii_banner)
         print("1 - Create a tweet")
@@ -151,7 +151,7 @@ while Loopstart == 1000:
             for i in range(10):
                 print(" ")
                 
-    if menu_Selection == "O":
+    elif menu_Selection == "O" or menu_Selection == "o":
         ascii_banner = pyfiglet.figlet_format("Others Menu")
         print(ascii_banner)
         print(" ")
